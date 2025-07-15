@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'wouter';
+import { Route } from 'wouter';
 import Header from './Header';
 import DailyChallengeCard from './DailyChallengeCard';
 import DailyChallengeUpload from './DailyChallengeUpload';
@@ -12,15 +12,14 @@ const App: React.FC = () => {
     return (
         <>
             <Header />
-            <Switch>
+            <>
                 <Route path="/Mittweida" component={Welcome} />
                 <Route path="/createaccount" component={CreateAccount} />
                 <Route path="/dailychallenge" component={DailyChallengeCard} />
                 <Route path="/upload" component={DailyChallengeUpload} />
                 <Route path="/student-posts" component={StudentPosts} />
                 <Route path="/leaderboard" component={Leaderboard} />
-
-            </Switch>
+            </>
         </>
     );
 };
