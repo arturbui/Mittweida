@@ -6,7 +6,7 @@ import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
-        <Router base="/Mittweida/">
+        <Router base="/Mittweida">
             <App/>
         </Router>
     </React.StrictMode>
