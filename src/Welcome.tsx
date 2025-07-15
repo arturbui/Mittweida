@@ -8,7 +8,7 @@ const Welcome = () => {
     const navigate = useNavigate();
 
     const handleUpload =() =>{
-        navigate('/CreateAccount')
+        navigate('/createAccount')
     }
 
     return (
