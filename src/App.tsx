@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Header from './Header';
 import DailyChallengeCard from './DailyChallengeCard';
@@ -25,3 +26,5 @@ const App: React.FC = () => {
 };
 
 export default App;
+
+
