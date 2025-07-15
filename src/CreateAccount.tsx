@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import { useLocation } from 'wouter';
 import './DailyChallengeCard.css';
 import CustomButton from './CustomButton';
-import { useNavigate } from 'react-router-dom';
 import './CreateAccount.css';
 
 const CreateAccount = () => {
@@ -10,7 +10,7 @@ const CreateAccount = () => {
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    const navigate = useNavigate();
+    const [, setLocation] = useLocation();
 
     const handleCreateAccount = async () => {
         if (!name || !email || !password) {
@@ -42,7 +42,7 @@ const CreateAccount = () => {
 
             const result = await response.json();
             console.log('Account created:', result);
-            navigate('/dailychallenge');
+            setLocation('/dailychallenge');
         } catch (err) {
             setError(err instanceof Error ? err.message : 'An error occurred');
         } finally {

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'wouter';
 import './Leaderboard.css';
 import './DailyChallengeCard.css';
 import CustomButton from './CustomButton';
@@ -14,7 +14,7 @@ const Leaderboard = () => {
     const [leaderboardData, setLeaderboardData] = useState<LeaderboardEntry[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
-    const navigate = useNavigate();
+    const [, navigate] = useLocation();
 
     useEffect(() => {
         fetchLeaderboard();
@@ -36,8 +36,9 @@ const Leaderboard = () => {
     };
 
     const handleBack = () => {
-        navigate(-1);
+        navigate('/student-posts');
     };
+
 
     const getRankColor = (rank: number) => {
         switch (rank) {

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'wouter';
 import './DailyChallengeCard.css';
 import './StudentPosts.css';
-import CustomButton from "./CustomButton.tsx";
+import CustomButton from "./CustomButton";
 
 interface Submission {
     id: number;
@@ -20,7 +20,7 @@ const StudentPosts = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [imageErrors, setImageErrors] = useState<{ [key: number]: boolean }>({});
-    const navigate = useNavigate();
+    const [, setLocation] = useLocation();
 
     useEffect(() => {
         fetchSubmissions();
@@ -50,7 +50,7 @@ const StudentPosts = () => {
     };
 
     const handleLeaderboard = () => {
-        navigate('/leaderboard');
+        setLocation('/leaderboard');
     };
 
     const handleImageError = (submissionId: number, imageUrl: string) => {
@@ -179,8 +179,6 @@ const StudentPosts = () => {
                                         )}
                                     </div>
                                 </div>
-
-
                             </div>
                         );
                     })

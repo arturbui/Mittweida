@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'wouter';
 
 interface HeaderProps {
     userId?: number;
@@ -7,8 +7,8 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ userId, refreshTrigger }) => {
-    const location = useLocation();
-    const hideProfile = location.pathname === '/' || location.pathname === '/createAccount';
+    const [location] = useLocation();
+    const hideProfile = location === '/' || location === '/createaccount';
     const [streak, setStreak] = useState(0);
 
     useEffect(() => {

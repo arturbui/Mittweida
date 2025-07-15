@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "id": 1,
+    "challengeId": 1,
+    "userId": 1,
+    "userName": "You",
+    "photoUrl": "/uploads/photo-1752604344608-411548265.jpg",
+    "submittedAt": "2025-07-15T18:32:24.616Z",
+    "timestamp": "20:32:24"
+  },
+  {
+    "id": 2,
+    "challengeId": 1,
+    "userId": 1,
+    "userName": "You",
+    "photoUrl": "/uploads/photo-1752604483251-579401261.jpg",
+    "submittedAt": "2025-07-15T18:34:43.257Z",
+    "timestamp": "20:34:43"
+  }
+]

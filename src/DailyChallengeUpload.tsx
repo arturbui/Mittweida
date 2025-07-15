@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useLocation } from 'wouter';
 import CustomButton from './CustomButton';
 import './DailyChallengeCard.css';
 
@@ -17,17 +17,20 @@ const DailyChallengeUpload = () => {
     const [uploading, setUploading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [imagePreview, setImagePreview] = useState<string | null>(null);
-    const navigate = useNavigate();
-    const location = useLocation();
-
-    const challenge = location.state?.challenge as Challenge;
+    const [challenge, setChallenge] = useState<Challenge | null>(null);
+    const [, setLocation] = useLocation();
 
     useEffect(() => {
-        console.log('Challenge data:', challenge);
-        if (!challenge) {
+        // Get challenge data from sessionStorage
+        const storedChallenge = sessionStorage.getItem('challengeData');
+        if (storedChallenge) {
+            const challengeData = JSON.parse(storedChallenge);
+            setChallenge(challengeData);
+            console.log('Challenge data:', challengeData);
+        } else {
             setError('No challenge data found. Please select a challenge first.');
         }
-    }, [challenge]);
+    }, []);
 
     const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
@@ -134,7 +137,11 @@ const DailyChallengeUpload = () => {
 
     const handlePopupConfirm = () => {
         setShowPopup(false);
-        navigate('/student-posts');
+        setLocation('/student-posts');
+    };
+
+    const goBack = () => {
+        setLocation('/dailychallenge');
     };
 
     if (!challenge) {
@@ -150,7 +157,7 @@ const DailyChallengeUpload = () => {
                                 </p>
                                 <CustomButton
                                     text="Go Back"
-                                    onClick={() => navigate(-1)}
+                                    onClick={goBack}
                                 />
                             </div>
                         </div>

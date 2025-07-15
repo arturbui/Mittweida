@@ -1,11 +1,10 @@
-
 import React from 'react';
+import { Route, Switch } from 'wouter';
 import Header from './Header';
 import DailyChallengeCard from './DailyChallengeCard';
 import DailyChallengeUpload from './DailyChallengeUpload';
-import { Routes, Route } from 'react-router-dom';
-import StudentPosts from "./StudentPosts.tsx";
-import Welcome from "./Welcome.tsx";
+import StudentPosts from "./StudentPosts";
+import Welcome from "./Welcome";
 import CreateAccount from "./CreateAccount";
 import Leaderboard from "./Leaderboard";
 
@@ -13,18 +12,18 @@ const App: React.FC = () => {
     return (
         <>
             <Header />
-            <Routes>
-                <Route path="/" element={<Welcome />} />
-                <Route path="/createaccount" element={<CreateAccount/>}/>
-                <Route path="/dailychallenge" element={<DailyChallengeCard />} />
-                <Route path="/upload" element={<DailyChallengeUpload />} />
-                <Route path="/student-posts" element={<StudentPosts />} />
-                <Route path="/leaderboard" element={<Leaderboard/>}/>
-            </Routes>
+            <Switch>
+                <Route path="/" component={Welcome} />
+                <Route path="/createaccount" component={CreateAccount} />
+                <Route path="/dailychallenge" component={DailyChallengeCard} />
+                <Route path="/upload" component={DailyChallengeUpload} />
+                <Route path="/student-posts" component={StudentPosts} />
+                <Route path="/leaderboard" component={Leaderboard} />
+                <Route>404 - Page Not Found</Route>
+            </Switch>
         </>
     );
 };
 
 export default App;
-
 

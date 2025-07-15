@@ -1,30 +1,27 @@
 import './Welcome.css';
-import { useNavigate } from 'react-router-dom';
-import CustomButton from "./CustomButton.tsx";
+import { useLocation } from 'wouter';
+import CustomButton from "./CustomButton";
 import './DailyChallengeCard.css'
 
 const Welcome = () => {
+    const [, setLocation] = useLocation();
 
-    const navigate = useNavigate();
-
-    const handleUpload =() =>{
-        navigate('/createAccount')
-    }
+    const handleStart = () => {
+        setLocation('/createaccount');
+    };
 
     return (
-
-
         <div>
             <div className="welcome-title">Welcome!</div>
             <div className="welcome-description">Unlock the secrets <br /> of Mittweida!</div>
             <div className="welcome-description-2">Conquer daily quests <br /> and become the best!</div>
             <div className="button-wrapper">
-            <CustomButton text="Start" onClick={handleUpload}/>
+                <CustomButton text="Start" onClick={handleStart}/>
+            </div>
         </div>
-        </div>
-    )
-}
-export default Welcome;
+    );
+};
 
+export default Welcome;
 
 

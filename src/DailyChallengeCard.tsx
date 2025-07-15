@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'wouter';
 import './DailyChallengeCard.css';
-import CustomButton from "./CustomButton.tsx";
+import CustomButton from "./CustomButton";
 
 interface Challenge {
     id: number;
@@ -16,7 +16,7 @@ const DailyChallengeCard = () => {
     const [challenge, setChallenge] = useState<Challenge | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
-    const navigate = useNavigate();
+    const [, setLocation] = useLocation();
 
     useEffect(() => {
         fetchDailyChallenge();
@@ -55,7 +55,9 @@ const DailyChallengeCard = () => {
 
     const handleAccept = () => {
         if (challenge) {
-            navigate('/upload', { state: { challenge } });
+            // Store challenge data in sessionStorage since we can't pass state with Wouter
+            sessionStorage.setItem('challengeData', JSON.stringify(challenge));
+            setLocation('/upload');
         }
     };
 
