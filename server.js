@@ -168,7 +168,7 @@ app.get('/api/daily-challenge', (req, res) => {
 app.post('/api/create-account', (req, res) => {
     try {
         const { name, email, password } = req.body;
-        console.log('👤 Creating account for:', email);
+        console.log('Creating account for:', email);
 
         const existingUser = users.find(u => u.email === email);
         if (existingUser) {

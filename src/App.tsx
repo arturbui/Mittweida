@@ -13,7 +13,7 @@ const App: React.FC = () => {
         <>
             <Header />
             <Switch>
-                <Route path="/" component={Welcome} />
+                <Route path="/Mittweida" component={Welcome} />
                 <Route path="/createaccount" component={CreateAccount} />
                 <Route path="/dailychallenge" component={DailyChallengeCard} />
                 <Route path="/upload" component={DailyChallengeUpload} />
