@@ -8,7 +8,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ userId, refreshTrigger }) => {
     const location = useLocation();
-    const hideProfile = location.pathname === '/' || location.pathname === '/CreateAccount';
+    const hideProfile = location.pathname === '/' || location.pathname === '/createAccount';
     const [streak, setStreak] = useState(0);
 
     useEffect(() => {
