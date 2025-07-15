@@ -19,7 +19,7 @@ const App: React.FC = () => {
                 <Route path="/upload" component={DailyChallengeUpload} />
                 <Route path="/student-posts" component={StudentPosts} />
                 <Route path="/leaderboard" component={Leaderboard} />
-                <Route>404 - Page Not Found</Route>
+
             </Switch>
         </>
     );
