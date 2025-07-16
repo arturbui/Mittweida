@@ -52,3 +52,8 @@ export default tseslint.config({
   },
 })
 ```
+
+Instructions to test my app:
+To make the project work you should run: "node server.js" on one terminal 
+and: "npm run dev" on another one.
+IF you want to reset/remove existing data on the node server you can run: "node reset-data.js" when the app isn't running.
