@@ -62,5 +62,5 @@ Technologies used:
 
 NestJS
 Vite
-React = Typescript
+React + Typescript
 GitHub pages
